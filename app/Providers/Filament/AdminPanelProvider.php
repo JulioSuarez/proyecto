@@ -18,6 +18,8 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
+use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
+
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -43,6 +45,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->profile()
             ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
+            // ->plugin(FilamentSpatieLaravelBackupPlugin::make())
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
