@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +21,18 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+    }
+    public function role()
+    {
+        $gerente = Role::create(['name' => 'Gerente']);
+        Permission::create(['name' => 'admin'])->syncRoles([$gerente]);
+
+
+        $user = new User();
+        $user->name = "Julio Suarez";
+        $user->email = "julio.suarez91@gmail.com";
+        $user->password = bcrypt('password');
+        $user->assignRole('Gerente');
+        $user->save();
     }
 }
