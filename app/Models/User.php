@@ -15,13 +15,13 @@ use Filament\Panel;
 // para la api
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
-use Sushi\Sushi;
+// use Sushi\Sushi;
 
 class User extends Authenticatable implements FilamentUser
 // class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
-    use Sushi;
+    // use Sushi;
 
     public function canAccessPanel(Panel $panel): bool
     {
