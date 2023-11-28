@@ -21,7 +21,7 @@ use Sushi\Sushi;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
-    // use Sushi;
+    use Sushi;
 
     public function canAccessPanel(Panel $panel): bool
     {
@@ -71,7 +71,8 @@ class User extends Authenticatable
 
         //filtering some attributes
         $users = Arr::map($users['users'], function ($item) {
-            return Arr::only($item,
+            return Arr::only(
+                $item,
                 [
                     '_id',
                     'name',
