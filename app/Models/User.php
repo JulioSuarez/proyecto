@@ -59,10 +59,13 @@ class User extends Authenticatable implements FilamentUser
     ];
 
 
-    public function Ventas()
+    // invoice
+
+    public function invoices()
     {
-        return $this->hasMany(Venta::class);
+        return $this->hasMany(Invoice::class);
     }
+
 
     // public function getRows()
     // {
@@ -96,10 +99,10 @@ class User extends Authenticatable implements FilamentUser
     //     return $users;
     // }
 
-    // public function getTable()
-    // {
-    //     return 'users';
-    // }
+    public function getTable()
+    {
+        return 'users';
+    }
 
     // public function getSupplierIdAttribute()
     // {
