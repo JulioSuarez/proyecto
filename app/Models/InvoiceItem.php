@@ -24,13 +24,13 @@ class InvoiceItem extends Model
 
     public function product()
     {
-        return $this->belongsTo(Producto::class, 'product_id', '_id');
+        return $this->belongsTo(Producto::class);
     }
 
-    public function getTable()
-    {
-        return 'invoice_item';
-    }
+    // public function getTable()
+    // {
+    //     return 'invoice_item';
+    // }
 
 
     public function getAmountAttribute()
