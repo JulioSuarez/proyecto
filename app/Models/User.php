@@ -17,8 +17,8 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
 use Sushi\Sushi;
 
-// class User extends Authenticatable implements FilamentUser
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
+// class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
     use Sushi;
@@ -64,50 +64,50 @@ class User extends Authenticatable
         return $this->hasMany(Venta::class);
     }
 
-    public function getRows()
-    {
-        //API
-        $users = Http::get('https://microservicioproduct.onrender.com/api/users')->json();
+    // public function getRows()
+    // {
+    //     //API
+    //     $users = Http::get('https://microservicioproduct.onrender.com/api/users')->json();
 
-        //filtering some attributes
-        $users = Arr::map($users['users'], function ($item) {
-            return Arr::only(
-                $item,
-                [
-                    '_id',
-                    'name',
-                    'email',
-                    'password',
-                    'role',
-                    'phone',
-                    'address',
-                    'city',
-                    'state',
-                    'country',
-                    'postalCode',
-                    'image',
-                    'createdAt',
-                    'updatedAt',
-                    '__v'
-                ]
-            );
-        });
+    //     //filtering some attributes
+    //     $users = Arr::map($users['users'], function ($item) {
+    //         return Arr::only(
+    //             $item,
+    //             [
+    //                 '_id',
+    //                 'name',
+    //                 'email',
+    //                 'password',
+    //                 'role',
+    //                 'phone',
+    //                 'address',
+    //                 'city',
+    //                 'state',
+    //                 'country',
+    //                 'postalCode',
+    //                 'image',
+    //                 'createdAt',
+    //                 'updatedAt',
+    //                 '__v'
+    //             ]
+    //         );
+    //     });
 
-        return $users;
-    }
+    //     return $users;
+    // }
 
-    public function getTable()
-    {
-        return 'users';
-    }
+    // public function getTable()
+    // {
+    //     return 'users';
+    // }
 
-    public function getSupplierIdAttribute()
-    {
-        return $this->attributes['_id'];
-    }
+    // public function getSupplierIdAttribute()
+    // {
+    //     return $this->attributes['_id'];
+    // }
 
-    public function getRoleAttribute()
-    {
-        return $this->attributes['role'];
-    }
+    // public function getRoleAttribute()
+    // {
+    //     return $this->attributes['role'];
+    // }
 }
