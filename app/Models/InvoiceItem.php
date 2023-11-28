@@ -32,5 +32,17 @@ class InvoiceItem extends Model
         return 'invoice_items';
     }
 
-    
+
+    public function getAmountAttribute()
+    {
+        return $this->product_amount;
+    }
+
+    public function getTotalAttribute()
+    {
+        return $this->product_price * $this->product_amount;
+    }
+
+
+
 }

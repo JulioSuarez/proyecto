@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('invoice_items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('invoice_id')->constrained();
-            $table->foreignId('productos_id')->constrained();
+            // $table->foreignId('productos_id')->constrained();
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('_id')->on('productos');
             $table->integer('product_price');
             $table->integer('product_amount');
             $table->timestamps();

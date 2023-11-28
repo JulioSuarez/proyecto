@@ -22,7 +22,6 @@ class Producto extends Model
     public function getRows()
     {
         //API
-        // $products = Http::get('https://dummyjson.com/products')->json();
         $products = Http::get('https://microservicioproduct.onrender.com/api/products')->json();
 
         //filtering some attributes
@@ -59,47 +58,38 @@ class Producto extends Model
         '__v'
     ];
 
-    public function categoria(): BelongsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(Categories::class, 'categoryId');
     }
 
-    public function detalleVenta(): HasMany
+    public function supplier(): BelongsTo
     {
-        return $this->hasMany(detalleVenta::class);
+        return $this->belongsTo(Suppliers::class, 'supplierId');
     }
 
-    public function venta(): HasMany
+    public function invoiceItems(): HasMany
     {
-        return $this->hasMany(Venta::class);
+        return $this->hasMany(InvoiceItem::class);
+    }
+
+    public function getUnitAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function setUnitAttribute($value)
+    {
+        $this->attributes['unit'] = strtoupper($value);
+    }
+
+    public function getAmountAttribute($value)
+    {
+        return strtoupper($value);
     }
 
     public function getTable()
     {
-        return 'products';
+        return 'Productos';
     }
-    
 }
-// namespace App\Models;
-
-// use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
-// use Illuminate\Database\Eloquent\Relations\HasMany;
-// use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
-// class Producto extends Model
-// {
-//     use HasFactory;
-
-//     protected $fillable = [
-//         'nombre',
-//         'descripcion',
-//         'precio',
-//         'categoria_id',
-//     ];
-
-//     public function categoria(): BelongsTo
-//     {
-//         return $this->belongsTo(Categoria::class);
-//     }
-// }

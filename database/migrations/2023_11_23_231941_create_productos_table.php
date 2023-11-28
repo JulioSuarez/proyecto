@@ -12,13 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->string('descripcion', 512)->nullable();
-            $table->decimal('precio', 10, 2)->default(0);
-            $table->integer('stock')->default(0);
-            $table->unsignedBigInteger('categoria_id')->nullable();
-            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->bigIncrements('_id');
+            $table->string('name')->nullable();
+            $table->string('brand')->nullable();
+            $table->integer('amount')->nullable();
+            $table->integer('minimum_amount')->nullable();
+            $table->integer('price')->nullable();
+            $table->string('unit')->nullable();
+            $table->integer('categoryId')->nullable();
+            $table->integer('supplierId')->nullable();
+            $table->integer('__v')->nullable();
             $table->timestamps();
         });
     }
