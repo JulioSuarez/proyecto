@@ -73,23 +73,23 @@ class Producto extends Model
         return $this->hasMany(InvoiceItem::class);
     }
 
-    public function getUnitAttribute($value)
-    {
-        return strtoupper($value);
-    }
+    // public function getUnitAttribute($value)
+    // {
+    //     return strtoupper($value);
+    // }
 
-    public function setUnitAttribute($value)
-    {
-        $this->attributes['unit'] = strtoupper($value);
-    }
+    // public function setUnitAttribute($value)
+    // {
+    //     $this->attributes['unit'] = strtoupper($value);
+    // }
 
-    public function getAmountAttribute($value)
-    {
-        return strtoupper($value);
-    }
+    // public function getAmountAttribute($value)
+    // {
+    //     return strtoupper($value);
+    // }
 
     public function getTable()
     {
-        return 'Productos';
+        return 'productos';
     }
 }
