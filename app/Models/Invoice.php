@@ -24,7 +24,7 @@ class Invoice extends Model
 
     public function invoiceItems()
     {
-        return $this->hasMany(invoiceItem::class);
+        return $this->hasMany(InvoiceItem::class);
     }
 
     public function getTable()
