@@ -1,8 +1,8 @@
 import { io } from 'socket.io-client';
 
 console.log('hola de socket_client.js');
-// export const socket = io('http://cristiancuellar.tech:3000', {
-export const socket = io('http://localhost:3000', {
+export const socket = io('http://softwaredemo.store:3000', {
+// export const socket = io('http://localhost:3000', {
     transports: ['websocket'],
 });
 

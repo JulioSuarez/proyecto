@@ -13,7 +13,7 @@
     "src": "resources/js/app.js"
   },
   "resources/js/socket_client.js": {
-    "file": "assets/socket_client-a7702ef1.js",
+    "file": "assets/socket_client-826c493c.js",
     "imports": [
       "_index-e3f35709.js"
     ],
@@ -21,7 +21,7 @@
     "src": "resources/js/socket_client.js"
   },
   "resources/js/streamjsxd/en-vivo.js": {
-    "file": "assets/en-vivo-618ba6d4.js",
+    "file": "assets/en-vivo-afda48c9.js",
     "imports": [
       "_index-e3f35709.js"
     ],
