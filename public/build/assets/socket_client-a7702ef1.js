@@ -1,0 +1,1 @@
+import{l as c}from"./index-e3f35709.js";console.log("hola de socket_client.js");const o=c("http://localhost:3000",{transports:["websocket"]});o.on("connect",function(e){console.log("conectado con el servidor desde socket_client.js")});o.on("disconnecte",function(e){console.log("perdimos conexion con el servidor desde client_socket.js")});

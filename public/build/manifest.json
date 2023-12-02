@@ -1,0 +1,31 @@
+{
+  "_index-e3f35709.js": {
+    "file": "assets/index-e3f35709.js"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-54d962a5.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-b1941ff8.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/socket_client.js": {
+    "file": "assets/socket_client-a7702ef1.js",
+    "imports": [
+      "_index-e3f35709.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/socket_client.js"
+  },
+  "resources/js/streamjsxd/en-vivo.js": {
+    "file": "assets/en-vivo-618ba6d4.js",
+    "imports": [
+      "_index-e3f35709.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/streamjsxd/en-vivo.js"
+  }
+}

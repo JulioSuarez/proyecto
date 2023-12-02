@@ -1,9 +1,12 @@
 import { socket } from '/resources/js/socket_client.js';
 
 console.log('hola de google-mett-socket.js');
+console.log('hola de google-mett-socket.js');
+console.log('hola de google-mett-socket.js');
 
 let isAlreadyCalling = false;
 let getCalled = false;
+
 
 const existingCalls = [];
 
