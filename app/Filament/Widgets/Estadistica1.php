@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Producto;
 use Filament\Widgets\ChartWidget;
 
 class Estadistica1 extends ChartWidget
@@ -10,6 +11,8 @@ class Estadistica1 extends ChartWidget
 
     protected function getData(): array
     {
+        // $productos = Producto::all();
+
         return [
             'datasets' => [
                 [

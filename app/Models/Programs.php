@@ -5,32 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Invoice extends Model
+class Programs extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
-        'invoice_number',
+        'title',
         'date',
-        'total',
         'user_id',
     ];
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function invoiceItems()
+    public function news()
     {
-        return $this->hasMany(InvoiceItem::class);
+        return $this->hasMany(News::class);
     }
-
-    public function getTable()
-    {
-        return 'invoices';
-    }
-
-
 }

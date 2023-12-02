@@ -12,10 +12,6 @@ use Spatie\Permission\Traits\HasRoles;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 
-// para la api
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Http;
-// use Sushi\Sushi;
 
 class User extends Authenticatable implements FilamentUser
 // class User extends Authenticatable
@@ -25,7 +21,8 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return str_ends_with($this->email, '@julicosuarez.tech');
+        // return str_ends_with($this->email, '@gmail.com');
+        return true;
     }
     /**
      * The attributes that are mass assignable.
@@ -59,58 +56,18 @@ class User extends Authenticatable implements FilamentUser
     ];
 
 
-    // invoice
-
-    public function invoices()
+    // programs
+    public function programs()
     {
-        return $this->hasMany(Invoice::class);
+        return $this->hasMany(Programs::class);
+    }
+
+    // avatars
+    public function avatars()
+    {
+        return $this->belongsTo(Avatars::class);
     }
 
 
-    // public function getRows()
-    // {
-    //     //API
-    //     $users = Http::get('https://microservicioproduct.onrender.com/api/users')->json();
 
-    //     //filtering some attributes
-    //     $users = Arr::map($users['users'], function ($item) {
-    //         return Arr::only(
-    //             $item,
-    //             [
-    //                 '_id',
-    //                 'name',
-    //                 'email',
-    //                 'password',
-    //                 'role',
-    //                 'phone',
-    //                 'address',
-    //                 'city',
-    //                 'state',
-    //                 'country',
-    //                 'postalCode',
-    //                 'image',
-    //                 'createdAt',
-    //                 'updatedAt',
-    //                 '__v'
-    //             ]
-    //         );
-    //     });
-
-    //     return $users;
-    // }
-
-    public function getTable()
-    {
-        return 'users';
-    }
-
-    // public function getSupplierIdAttribute()
-    // {
-    //     return $this->attributes['_id'];
-    // }
-
-    // public function getRoleAttribute()
-    // {
-    //     return $this->attributes['role'];
-    // }
 }
