@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* codigo css de cristian  */
+
+.label-xd{
+    @apply text-gray-800 text-sm font-semibold mb-1  leading-tight tracking-normal
+}
+
+.input-xd{
+    @apply  mb-1 text-gray-500 font-normal   h-8 pl-3 text-sm
+    border-gray-300 rounded border
+    focus:outline-none focus:border focus:border-blue-900
+}
+
+.area-xd{
+    @apply mt-0 mb-1 text-gray-500 font-normal w-full  pl-3 text-sm
+    border-gray-300 rounded border
+    focus:outline-none focus:border focus:border-blue-900 capitalize
+}
+
+
+.btn-green {
+    @apply bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded ml-4;
+}
+
+
+.btn-red {
+    @apply bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded ml-4;
+}
+
+.w-nav-chico {
+    @apply w-14;
+}
+
+.w-nav-grande {
+    @apply w-64;
+}
+
+/*fin codigo css de cristian */
