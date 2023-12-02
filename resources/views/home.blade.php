@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Blog Template</title>
+    <title>Cristian puto</title>
     <meta name="author" content="Grupo 5">
     <meta name="description" content="FERRETERIA">
 
