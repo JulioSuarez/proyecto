@@ -1,6 +1,6 @@
-// import express from 'express';
-// import { Server } from 'socket.io';
-// import http from 'http';
+import express from 'express';
+import { Server } from 'socket.io';
+import http from 'http';
 // import path from 'path'; //para trabajar con rutas de archivos
 // const express = require('express');
 // const { Server } = require('socket.io');

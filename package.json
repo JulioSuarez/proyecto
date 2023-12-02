@@ -1,7 +1,7 @@
 {
     "private": true,
-    "__type__": "module",
-    "type": "commonjs",
+    "type": "module",
+    "__type__": "commonjs",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
