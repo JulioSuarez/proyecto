@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
 
     //streams en vivo 
     Route::get('/stream',[StreamController::class, 'en_vivo'])->name('stream.en_vivo');
+    Route::get('/control',[StreamController::class, 'control'])->name('stream.control');
     
 
 });

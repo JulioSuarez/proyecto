@@ -1,5 +1,5 @@
 <x-navbar-inquilinos>
-    @vite('resources/js/streamjsxd/en-vivo.js')
+    @vite('resources/js/streamjs/en-vivo.js')
     <x-slot name='titulo'>
         Google Meet clon
     </x-slot>

@@ -39,11 +39,17 @@
             [
                 'name' => 'Stream',
                 'url' => route('stream.en_vivo'),
-                'active' => request()->routeIs('stream.*'), //verifica si se esta en la rota atual
+                'active' => request()->routeIs('stream.en_vivo'), //verifica si se esta en la rota atual
                 'permiso' => 'nav.stream_en_vivo',
                 'icono' => 'fa-solid fa-video',
             ],
 
+            [    'name' => 'Control',
+                'url' => route('stream.control'),
+                'active' => request()->routeIs('stream.control'), //verifica si se esta en la rota atual
+                'permiso' => 'nav.stream_en_vivo',
+                'icono' => 'fa-solid fa-video',
+            ],
         ];
     @endphp
 
@@ -271,10 +277,10 @@
         <div id="div_navbar2" class="w-nav-chico">
             
         </div>
-        {{-- parte derecha --}}
-        <div id="div_contenido" class=" w-[82%] ">
+        {{-- parte derecha w-[82%]--}}
+        <div id="div_contenido" class=" w-full ">
             <!-- ml-64-->
-            <div class=" h-full  ">
+            <div class=" h-full   ">
                 {{ $slot }}
 
             </div>

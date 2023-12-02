@@ -1,16 +1,30 @@
 {
+  "_axios-28bc18a3.js": {
+    "file": "assets/axios-28bc18a3.js"
+  },
   "_index-e3f35709.js": {
     "file": "assets/index-e3f35709.js"
   },
   "resources/css/app.css": {
-    "file": "assets/app-54d962a5.css",
+    "file": "assets/app-700252cc.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-b1941ff8.js",
+    "file": "assets/app-a43be82b.js",
+    "imports": [
+      "_axios-28bc18a3.js"
+    ],
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "resources/js/bootstrap.js": {
+    "file": "assets/bootstrap-3c3d97c0.js",
+    "imports": [
+      "_axios-28bc18a3.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/bootstrap.js"
   },
   "resources/js/socket_client.js": {
     "file": "assets/socket_client-826c493c.js",
@@ -20,12 +34,17 @@
     "isEntry": true,
     "src": "resources/js/socket_client.js"
   },
-  "resources/js/streamjsxd/en-vivo.js": {
+  "resources/js/streamjs/en-vivo.js": {
     "file": "assets/en-vivo-afda48c9.js",
     "imports": [
       "_index-e3f35709.js"
     ],
     "isEntry": true,
-    "src": "resources/js/streamjsxd/en-vivo.js"
+    "src": "resources/js/streamjs/en-vivo.js"
+  },
+  "resources/js/streamjs/ia_mover_cara.js": {
+    "file": "assets/ia_mover_cara-38809c82.js",
+    "isEntry": true,
+    "src": "resources/js/streamjs/ia_mover_cara.js"
   }
 }

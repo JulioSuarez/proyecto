@@ -10,4 +10,9 @@ class StreamController extends Controller
     {
         return view('VistasStream.en_vivo');
     }
+
+    public function control()
+    {
+        return view('VistasStream.control');
+    }
 }
