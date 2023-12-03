@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Business\ProgramController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StreamController;
@@ -36,12 +37,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-   
+   Route::resource('programs', ProgramController::class);
 
-    //streams en vivo 
+    //streams en vivo
     Route::get('/stream',[StreamController::class, 'en_vivo'])->name('stream.en_vivo');
     Route::get('/control',[StreamController::class, 'control'])->name('stream.control');
-    
+
 
 });
 

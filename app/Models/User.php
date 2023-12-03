@@ -65,7 +65,7 @@ class User extends Authenticatable implements FilamentUser
     // avatars
     public function avatars()
     {
-        return $this->belongsTo(Avatars::class);
+        return $this->hasMany(Avatars::class);
     }
 
 

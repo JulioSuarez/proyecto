@@ -19,13 +19,14 @@ class News extends Model
         'program_id',
     ];
 
-    public function avatars()
+    public function program()
+    {
+        return $this->belongsTo(Programs::class);
+    }
+
+    public function avatar()
     {
         return $this->belongsTo(Avatars::class);
     }
 
-    public function programs()
-    {
-        return $this->belongsTo(Programs::class);
-    }
 }
