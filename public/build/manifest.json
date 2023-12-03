@@ -6,12 +6,12 @@
     "file": "assets/index-e3f35709.js"
   },
   "resources/css/app.css": {
-    "file": "assets/app-3218c7b5.css",
+    "file": "assets/app-b28ad267.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/js/app.js": {
-    "file": "assets/app-a43be82b.js",
+    "file": "assets/app-afa9032e.js",
     "imports": [
       "_axios-28bc18a3.js"
     ],
@@ -43,7 +43,7 @@
     "src": "resources/js/streamjs/en-vivo.js"
   },
   "resources/js/streamjs/ia_mover_cara.js": {
-    "file": "assets/ia_mover_cara-b876db14.js",
+    "file": "assets/ia_mover_cara-87618430.js",
     "isEntry": true,
     "src": "resources/js/streamjs/ia_mover_cara.js"
   }
