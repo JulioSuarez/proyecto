@@ -51,21 +51,57 @@
             </div>
             <div class=" w-full flex flex-col justify-between pl-6  ">
                 <div class="bg-gray-800 text-white p-5">
-                    <p>Centro de contrl </p>
-                    <div id="div_control_videos" class="flex space-x-5 overflow-x-auto ">
+                    <p class="font-bold text-lg ">Centro de control </p>
+                    <div id="div_control_videos" class="flex space-x-5 overflow-x-auto h-36   ">
 
-                        <div class="" id="video_1">
-                            <img class="h-28 w-28 border-2 rounded-lg border-red-600" src="{{ asset('/images/video.png') }}" alt="">
-                        </div>
+                        <button class="relative border-2 rounded-lg h-28 w-28 text-center flex justify-center items-center font-bold">
+                            <img class="h-28 w-28 opacity-80 border-2 rounded-lg " src="" alt="">
+                            <span class="absolute ">
+                                Subiendo imagen...
+                            </span>
+                        </button>
+                        
 
-                        <div class="border-2 rounded-lg bg-blue-600 h-28 w-28 text-center flex justify-center items-center font-bold " id="video_2">
-                            <img class=" " src="https://i.pinimg.com/550x/b6/a3/d0/b6a3d082786c2b16f28d24ddf7cb88f2.jpg" alt="">
-                            Subiendo imagen...
-                        </div>
+                        <x-button-modal-flow id_modal="modal_1" class="w-28 h-28 bg-green-500">
+                            hola desde boton 1
+                        </x-button-modal-flow>
 
-                        <div class="" id="video_3">
+                        <x-modal-flow id_modal="modal_1"  class="">
+                            <x-slot name="header">
+                                <div> hola como estas</div>    
+                            </x-slot>
+                            <x-slot name="body">
+                                <div> contenniod</div>    
+                            </x-slot>
+                            
+                            <p>hola desde modal</p>
+                        </x-modal-flow>
+
+
+                     
+
+  
+
+ 
+  
+
+                    {{-- <div class="relative border-2 rounded-lg  h-28 w-28 text-center flex justify-center items-center font-bold " id="video_2">
+                            <img class="opacity-80  border-2 rounded-lg  " src="https://i.pinimg.com/550x/b6/a3/d0/b6a3d082786c2b16f28d24ddf7cb88f2.jpg" alt="">
+                            <div class="flex flex-col h-full absolute">
+                                <div class="h-4 text-right ">
+                                    <button class="border px-2 ">
+                                        X
+                                    </button>     
+                                </div>
+                                <span class="flex-1  flex items-end">
+                                    Subiendo imagen...
+                                </span>
+                            </div>
+                        </div> --}}
+
+                        {{-- <div class="" id="video_3">
                             <img class="h-28 w-28 border-2 rounded-lg " src="{{ asset('/images/video.png') }}" alt="">
-                        </div>
+                        </div> --}}
 
                         {{-- <button>
                             <img class="h-28 w-28" src="{{ asset('/images/video.png') }}" alt="">
@@ -84,16 +120,6 @@
 
 
                 </div>
-
-                <div class="mb-7 flex justify-center">
-                    <p class="text-black font-bold text-lg  text-center">
-                        {{-- IA Video --}}
-                    </p>
-                    <button id=" bt_mostrar_video" class="hidden btn-red disabled ">
-                        hoola
-                    </button>
-                </div>
-
               
 
 
@@ -131,9 +157,9 @@
             let ia_video = document.getElementById('ia_video');
             let videoPreCargar = document.getElementById('videoPreCargar');
             let videos = [
-                "https://fotografia-soft1.s3.amazonaws.com/videos/video1.mp4",
-                "https://fotografia-soft1.s3.amazonaws.com/videos/video2.mp4",
-                "https://fotografia-soft1.s3.amazonaws.com/videos/video3.mp4",
+                // "https://fotografia-soft1.s3.amazonaws.com/videos/video1.mp4",
+                // "https://fotografia-soft1.s3.amazonaws.com/videos/video2.mp4",
+                // "https://fotografia-soft1.s3.amazonaws.com/videos/video3.mp4",
                 
             ];
             let contador = 0;
