@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Suscripcion;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -22,6 +24,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->role();
+        $this->suscripciones();
         $this->users();
     }
     public function role()
@@ -30,6 +33,22 @@ class DatabaseSeeder extends Seeder
         Permission::create(['name' => 'admin'])->syncRoles([$gerente]);
 
 
+    }
+
+    public function suscripciones(){
+        Suscripcion::create([
+            'nombre' => 'Plan Basico',
+            'precio' => 1,
+            'stripe_id' => 'price_1OJTfHJrLfX1VoDJWE4uOVib',
+            'foto' => 'https://scontent.fsrz1-2.fna.fbcdn.net/v/t39.30808-6/306696242_2022526374615946_5961266096114267716_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=c83dfd&_nc_ohc=8-mbKNO71pcAX8DFHZg&_nc_ht=scontent.fsrz1-2.fna&oh=00_AfBwDsCf03J0TZbTFD27CTsGhQjDH1K8IA-lHykmsCXqAw&oe=6572BB51',
+        ]);
+
+        Suscripcion::create([
+            'nombre' => 'Plan Pro',
+            'precio' => 5,
+            'stripe_id' => 'price_1OJTfHJrLfX1VoDJYCUSCTeS',
+            'foto' => 'https://www.ge2.co/wp-content/uploads/2018/09/plan_premium_sanitas.jpg',
+        ]);
     }
 
     public function users(){

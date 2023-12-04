@@ -30,6 +30,10 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+        // dd('llegeu ');
+
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
@@ -42,12 +46,16 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+      
         event(new Registered($user));
 
         Auth::login($user);
         //registrar como cliente en stripe
         $user->createAsStripeCustomer();
+
+        // dd('llegue ');
+        return redirect()->route('suscripcion.pago_suscripcion');
         
-        return redirect(RouteServiceProvider::HOME);
+        // return redirect(RouteServiceProvider::HOME);
     }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('suscripcions', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('foto');
+            $table->text('foto');
             $table->decimal('precio', 8, 2);
             $table->string('stripe_id');
             $table->timestamps();

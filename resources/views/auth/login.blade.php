@@ -2,10 +2,12 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }} "
+    class="w-full  flex justify-center">
         @csrf
 
-        <!-- Email Address -->
+        <div class="w-1/4 mt-6 px-6 py-4 bg-white shadow-md sm:rounded-lg">
+            <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
@@ -42,6 +44,7 @@
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>
+        </div>
         </div>
     </form>
 </x-guest-layout>

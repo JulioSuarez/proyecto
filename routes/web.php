@@ -22,11 +22,11 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/hola', function () {
-    return 'hola xd';
+Route::get('/', function () {
+    return redirect()->route('dashboard');
 });
 
-Route::get('/', [HomeController::class,'index']);
+// Route::get('/', [HomeController::class,'index']);
 
 
 Route::get('/dashboard', function () {
@@ -46,9 +46,13 @@ Route::middleware('auth')->group(function () {
 
 
     //suscripciones
-    Route::get('/suscripciones',[MetodoPagoController::class, 'suscripciones_index'])->name('suscripciones.index');
-    Route::get('/suscripciones/{suscripcion}/RealizarPago/',[MetodoPagoController::class, 'realizar_pago'])->name('suscripciones.realizar_pago');
-
+    // Route::get('/suscripciones',[MetodoPagoController::class, 'suscripciones_index'])->name('suscripcion.index');
+    Route::get('/suscripcion/RealizarPago/',[MetodoPagoController::class, 'pago_suscripcion'])->name('suscripcion.pago_suscripcion');
+    // Route::delete('/suscripciones/cancelar/{suscripcion}',[MetodoPagoController::class, 'suscripciones_cancelar'])->name('suscripcion.cancelar');
+   
 });
+
+Route::get('/suscripcion/RealizarPago/',[MetodoPagoController::class, 'pago_suscripcion'])->name('suscripcion.pago_suscripcion');
+   
 
 require __DIR__.'/auth.php';

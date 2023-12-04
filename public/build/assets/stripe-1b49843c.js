@@ -1,1 +1,0 @@
-console.log("hola desde stripe carptera ");Livewire.on("errorxd",function(e){console.log("se ejecuto el script livewire xxd "),Swal.fire({icon:"error",title:"Oops...",text:"No tiene un metodo preestablecido!"})});

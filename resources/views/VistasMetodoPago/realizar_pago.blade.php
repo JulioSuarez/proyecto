@@ -1,9 +1,9 @@
-<x-navbar-inquilinos>
+<x-guest-layout>
+  
 
     @vite('resources/js/stripe.js')
-    <x-slot name='titulo'>
-        Realizar Pago
-    </x-slot>
+   
+    
 
  <div class="pt-6 w-full flex justify-center">
     <div class="w-full flex  sm:max-w-4xl mt-6 px-3 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
@@ -17,20 +17,20 @@
 
             <div class="flex justify-between border-b-2 border-gray-300">
                 <div class="flex flex-col">
-                    <span class="font-bold text-xl "> Membresia Plan Basico  -
+                    <span class="font-bold text-xl "> Suscripcion {{ $suscripcion->nombre  }}  -
                         mensual</span>
                     <span> suscripcion</span>
                 </div>
 
                 <div class="flex flex-col ">
-                    <span class="font-bold text-xl text-right "> $ 1</span>
+                    <span class="font-bold text-xl text-right "> $ {{ $suscripcion->precio }}</span>
                     <span> cada mes</span>
                 </div>
             </div>
 
             <div class="flex justify-between border-b-2 border-gray-300">
                 <span class="font-semibold"> Total a ser pagado hoy </span>
-                <p> USD <span class="font-semibold">$ 1</span></p>
+                <p> USD <span class="font-semibold">$ {{ $suscripcion->precio }}</span></p>
             </div>
 
         </div>
@@ -38,14 +38,12 @@
         <div class="border-gray-400 border-l-2 px-5 flex-1 flex flex-col justify-between">
 
 
-            {{-- @livewire('metodo-pago', ['id' => $membresia->id, 'tipo' => 1]) --}}
-            @livewire('metodo-pago-stripe',  ['id' => 1])   {{-- //poner la id de plan  --}}
-
-
+         @livewire('pago_suscripcion' )
 
         </div>
     </div>
 
  </div>
 
-</x-navbar-inquilinos>
+ 
+</x-guest-layout>

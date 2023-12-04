@@ -159,7 +159,7 @@ let img_hombre = document.getElementById('img_hombre')
 let img_mujer = document.getElementById('img_mujer')
 
 
-document.getElementById('bt_hombre').addEventListener('click', function () {
+document.getElementById('bt_hombre').addEventListepner('click', function () {
   console.log('click en hombre')
   genero = 0;
   img_mujer.classList.remove('border-blue-600');

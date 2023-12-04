@@ -61,7 +61,6 @@
                             </span>
                         </button>
 
-
                         <x-button-modal-flow id_modal="modal_1" class="w-28 h-28 bg-green-500">
                             hola desde boton 1
                         </x-button-modal-flow>

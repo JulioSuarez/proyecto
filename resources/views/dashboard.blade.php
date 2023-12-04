@@ -14,4 +14,17 @@
             </div>
         </div>
     </div>
+
+
+    @if (session('success'))
+            <script>
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: @json(session('success')),
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            </script>
+        @endif
 </x-app-layout>

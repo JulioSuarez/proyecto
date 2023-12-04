@@ -84,11 +84,7 @@ class User extends Authenticatable implements FilamentUser
 
 
     //relaciones
-    public function suscripciones()
-    {   
-        return $this->hasMany(Suscripciones::class);
-    }
-
+   
 
 
 }

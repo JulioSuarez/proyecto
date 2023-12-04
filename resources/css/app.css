@@ -26,6 +26,13 @@
     @apply bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded ml-4;
 }
 
+.btn-blue {
+    @apply bg-blue-700 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded ml-4;
+}
+
+.btn-black {
+    @apply bg-gray-800 hover:bg-gray-700 text-white font-bold py-1 px-3 rounded ml-4;
+}
 
 .btn-red {
     @apply bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded ml-4;
