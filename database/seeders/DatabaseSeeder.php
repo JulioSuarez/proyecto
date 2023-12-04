@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->role();
+        $this->users();
     }
     public function role()
     {
@@ -29,10 +30,15 @@ class DatabaseSeeder extends Seeder
         Permission::create(['name' => 'admin'])->syncRoles([$gerente]);
 
 
+    }
+
+    public function users(){
+
         $user = new User();
         $user->name = "Julio Suarez";
         $user->email = "julio.suarez91@gmail.com";
         $user->password = bcrypt('password');
+        $user->stripe_id = 'cus_P7jVKCPwDursvN';
         $user->assignRole('Gerente');
         $user->save();
 
@@ -40,6 +46,15 @@ class DatabaseSeeder extends Seeder
         $user->name = "Cristian Cuellar ";
         $user->email = "admin@gmail.com";
         $user->password = bcrypt('12345678');
+        $user->stripe_id = 'cus_P4yGqDLT3CSoyJ';
+        $user->assignRole('Gerente');
+        $user->save();
+
+        $user = new User();
+        $user->name = "Gabriel Mercado ";
+        $user->email = "gabriel@gmail.com";
+        $user->password = bcrypt('12345678');
+        $user->stripe_id = 'cus_P4z0sgrox7qZg8';
         $user->assignRole('Gerente');
         $user->save();
     }

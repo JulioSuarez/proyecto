@@ -98,7 +98,7 @@ async function postCargarFoto() {
           console.log(); ('esperando 5 segundos')
           await new Promise(resolve => setTimeout(resolve, 5000)); // Esperar 5 segundos
 
-
+            
           await fetch('https://api.d-id.com/talks/' + id_video, { //'tlk_Xye4C03vIGPPx3Bzeo-_5
             method: 'GET',
             headers: {
@@ -146,7 +146,7 @@ async function postCargarFoto() {
 
 
 
-//realizando una peticion a la ia 
+//realizando una peticion a la ia
 butom_ia.addEventListener('click', async function () {
 
   //ejecuat la funcion post de la ap

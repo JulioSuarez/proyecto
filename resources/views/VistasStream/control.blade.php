@@ -1,4 +1,4 @@
-<x-navbar-inquilinos>
+        <x-navbar-inquilinos>
 
     @vite(['resources/js/streamjs/ia_mover_cara.js'])
 
@@ -35,7 +35,7 @@
                     <input type="file" name="foto" id="foto">
                 </div>
 
-                <div class=" ">
+            <div class=" ">
                     <p class="mb-1 font-semibold">Mensaje a reproducir</p>
                     <div class="flex">
                         <input id="ip_mensaje" type="text" value="" name="texto" placeholder="escribir"
@@ -60,7 +60,7 @@
                                 Subiendo imagen...
                             </span>
                         </button>
-                        
+
 
                         <x-button-modal-flow id_modal="modal_1" class="w-28 h-28 bg-green-500">
                             hola desde boton 1
@@ -68,59 +68,24 @@
 
                         <x-modal-flow id_modal="modal_1"  class="">
                             <x-slot name="header">
-                                <div> hola como estas</div>    
+                                <div> hola como estas</div>
                             </x-slot>
-                            <x-slot name="body">
-                                <div> contenniod</div>    
+                            <x-slot name="body" >
+                                {{-- <video src="https://fotografia-soft1.s3.amazonaws.com/videos/video1.mp4">
+
+                                </video> --}}
+                                <p> hla ocmo estas </p>
                             </x-slot>
-                            
-                            <p>hola desde modal</p>
+
+
                         </x-modal-flow>
-
-
-                     
-
-  
-
- 
-  
-
-                    {{-- <div class="relative border-2 rounded-lg  h-28 w-28 text-center flex justify-center items-center font-bold " id="video_2">
-                            <img class="opacity-80  border-2 rounded-lg  " src="https://i.pinimg.com/550x/b6/a3/d0/b6a3d082786c2b16f28d24ddf7cb88f2.jpg" alt="">
-                            <div class="flex flex-col h-full absolute">
-                                <div class="h-4 text-right ">
-                                    <button class="border px-2 ">
-                                        X
-                                    </button>     
-                                </div>
-                                <span class="flex-1  flex items-end">
-                                    Subiendo imagen...
-                                </span>
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="" id="video_3">
-                            <img class="h-28 w-28 border-2 rounded-lg " src="{{ asset('/images/video.png') }}" alt="">
-                        </div> --}}
-
-                        {{-- <button>
-                            <img class="h-28 w-28" src="{{ asset('/images/video.png') }}" alt="">
-                        </button>
-
-                        <button>
-                            <img class="h-28 w-28" src="{{ asset('/images/video.png') }}" alt="">
-                        </button>
-
-                        <button>
-                            <img class="h-28 w-28" src="{{ asset('/images/video.png') }}" alt="">
-                        </button> --}}
 
 
                     </div>
 
 
                 </div>
-              
+
 
 
                 <video id="ia_video" controls autoplay class="bg-transparent rounded-md border h-80 object-cover">
@@ -151,7 +116,6 @@
         </div>
 
         <script>
-            
 
             console.log('hola desde control');
             let ia_video = document.getElementById('ia_video');
@@ -160,7 +124,6 @@
                 // "https://fotografia-soft1.s3.amazonaws.com/videos/video1.mp4",
                 // "https://fotografia-soft1.s3.amazonaws.com/videos/video2.mp4",
                 // "https://fotografia-soft1.s3.amazonaws.com/videos/video3.mp4",
-                
             ];
             let contador = 0;
 
@@ -221,13 +184,13 @@
                 // console.log('contador++ = ' calciularSigContador);
                 videoPreCargar.src = videos[calciularSigContador()];
                 videoPreCargar.load();
-                
+
 
 
                 console.log(videos[contador]);
                 ia_video.src = videos[contador];
 
-    
+
                 ia_video.load();
                 ia_video.play();
             });
@@ -243,7 +206,7 @@
                 }
             return aux;
             }
-            
+
         </script>
 
 

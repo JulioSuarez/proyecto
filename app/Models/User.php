@@ -13,10 +13,14 @@ use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 
 
+//stripe metodos de pago
+use Laravel\Cashier\Billable;
+use function Illuminate\Events\queueable; //actualizar cambios en stripe
+
 class User extends Authenticatable implements FilamentUser
 // class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, Billable;
     // use Sushi;
 
     public function canAccessPanel(Panel $panel): bool
@@ -66,6 +70,23 @@ class User extends Authenticatable implements FilamentUser
     public function avatars()
     {
         return $this->hasMany(Avatars::class);
+    }
+
+    // metodo de stripe para actualizar datos de cliente
+    protected static function booted(): void
+    {
+        static::updated(queueable(function (User $customer) {
+            if ($customer->hasStripeId()) {
+                $customer->syncStripeCustomerDetails();
+            }
+        }));
+    }
+
+
+    //relaciones
+    public function suscripciones()
+    {   
+        return $this->hasMany(Suscripciones::class);
     }
 
 

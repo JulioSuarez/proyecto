@@ -10,17 +10,15 @@
 
 
     <title>CrediDocuManager</title>
-    <link
-    href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap"
-    rel="stylesheet"
-  />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap" rel="stylesheet" />
 
-  
+
     @vite(['resources/css/app.css', 'resources/js/app.js']) <!-- 'resources/js/modal_navbar.js' -->
 
 
-
-
+    {{--  para las alertas --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @stack('css')
 </head>
 
 
@@ -44,7 +42,8 @@
                 'icono' => 'fa-solid fa-video',
             ],
 
-            [    'name' => 'Control',
+            [
+                'name' => 'Control',
                 'url' => route('stream.control'),
                 'active' => request()->routeIs('stream.control'), //verifica si se esta en la rota atual
                 'permiso' => 'nav.stream_en_vivo',
@@ -55,11 +54,13 @@
 
     <div
         class="flex bg-white justify-between items-center space-x-5 pl-4 fixed top-0 z-50 h-14 w-full border-b border-gray-300 shadow">
-        <div class=" text-base h-full flex justify-between items-center w-96 ">  
+        <div class=" text-base h-full flex justify-between items-center w-96 ">
             <button id="bt_abrir_menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                  </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
             </button>
 
 
@@ -161,9 +162,9 @@
                                 <img class="w-12 h-10 rounded-full object-cover"
                                     src="{{ route('cargar_imagen', $user->foto) }}" />
                             @else
-                            <img class="w-12 h-10 rounded-lg object-cover"
-                                src="https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg"
-                                alt="">
+                                <img class="w-12 h-10 rounded-lg object-cover"
+                                    src="https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg"
+                                    alt="">
                             @endif
                         </div>
                         <div class="">
@@ -187,7 +188,7 @@
                     </x-dropdown-link> --}}
 
                     <x-dropdown-link :href="route('profile.edit')">
-                        Perfil de usuario 
+                        Perfil de usuario
                     </x-dropdown-link>
 
                     <!-- Authentication -->
@@ -219,52 +220,52 @@
                     @foreach ($link as $l)
                         @php
                             $active = $l['active'];
-                            $classes = $active ?? false ? ' border-l-4 border-green-500 bg-gray-200 pl-3  text-green-600 font-bold'
-                                                        : ' bg-gray-100 hover:bg-white pl-4  text-gray-600';
+                            $classes = $active ?? false ? ' border-l-4 border-green-500 bg-gray-200 pl-3  text-green-600 font-bold' : ' bg-gray-100 hover:bg-white pl-4  text-gray-600';
                         @endphp
                         {{-- @can($l['permiso']) --}}
                         @if ($l['name'] == 'Productos' && $l['active'])
                             <div class="div_mostrar_producto flex flex-col  ">
                                 <button {{ $l['name'] == 'Productos' && $l['active'] ? 'id=bt_producto' : '' }}
-                                    type="button"  class="flex justify-between w-full px-4
+                                    type="button"
+                                    class="flex justify-between w-full px-4
                                         {{ $classes }} flex items-center text-sm font-medium pt-1 pr-2  text-gray-600
-                                        hover:text-base rounded-tr-lg transition duration-150 ease-in-out "
-                                >
-                                <div class="">
-                                    <i class="{{ $l['icono'] }}  w-5 text-center "></i>
-                                    <span class="text-base ml-2">{{ $l['name'] }}</span>
-                                </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4 opacity-80">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                    </svg>  
+                                        hover:text-base rounded-tr-lg transition duration-150 ease-in-out ">
+                                    <div class="">
+                                        <i class="{{ $l['icono'] }}  w-5 text-center "></i>
+                                        <span class="text-base ml-2">{{ $l['name'] }}</span>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1" stroke="currentColor" class="w-4 h-4 opacity-80">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                    </svg>
                                 </button>
 
-                                <ul id="ul_productos" class=" hidden border-l-4 border-green-500 bg-gray-200 pl-14 text-gray-700 space-y-1 py-1 pr-2">
-                                    <li >
+                                <ul id="ul_productos"
+                                    class=" hidden border-l-4 border-green-500 bg-gray-200 pl-14 text-gray-700 space-y-1 py-1 pr-2">
+                                    <li>
                                         <a class="{{ request()->routeIs('producto.index.datatable') ? 'text-green-600 font-medium' : '' }}"
-                                        href="{{ route('producto.index.datatable') }}">Productos Original</a>
+                                            href="{{ route('producto.index.datatable') }}">Productos Original</a>
                                     </li>
                                     <li>
                                         <a class="{{ request()->routeIs('producto.index') ? 'text-green-800 font-medium' : '' }}"
-                                        href="{{ route('producto.index') }}">Productos DataTable</a>
+                                            href="{{ route('producto.index') }}">Productos DataTable</a>
                                     </li>
                                 </ul>
-                                                        
+
                             </div>
-                        @else    
+                        @else
                             <a class="{{ $classes }} flex items-center text-sm font-medium py-1 pr-2  text-gray-600
                                 hover:text-base rounded-r-lg  "
-                                href="{{ $l['url'] }}"
-                                {{-- {{ $l['name'] == 'Productos' ? 'id=bt_producto' : '' }} --}}
-                                >
-                              
+                                href="{{ $l['url'] }}" {{-- {{ $l['name'] == 'Productos' ? 'id=bt_producto' : '' }} --}}>
+
                                 <i class="{{ $l['icono'] }} text-center w-6 mr-2 "></i>
                                 <div class="min-h-[1.5rem]">
                                     <span class="text-base text-center  navbar_nombre  ">
-                                        {{  $l['name']  }}
+                                        {{ $l['name'] }}
                                     </span>
                                 </div>
-                            </a>    
+                            </a>
                         @endif
 
                         {{-- @endcan --}}
@@ -275,9 +276,9 @@
         </div>
 
         <div id="div_navbar2" class="w-nav-chico">
-            
+
         </div>
-        {{-- parte derecha w-[82%]--}}
+        {{-- parte derecha w-[82%] --}}
         <div id="div_contenido" class=" w-full ">
             <!-- ml-64-->
             <div class=" h-full   ">
@@ -288,7 +289,9 @@
         </div>
 
     </div>
- 
+
+    @stack('js')
+
 </body>
 
 </html>

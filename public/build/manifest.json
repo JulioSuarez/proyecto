@@ -6,7 +6,7 @@
     "file": "assets/index-e3f35709.js"
   },
   "resources/css/app.css": {
-    "file": "assets/app-b28ad267.css",
+    "file": "assets/app-7521c7ad.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -46,5 +46,10 @@
     "file": "assets/ia_mover_cara-87618430.js",
     "isEntry": true,
     "src": "resources/js/streamjs/ia_mover_cara.js"
+  },
+  "resources/js/stripe.js": {
+    "file": "assets/stripe-1b49843c.js",
+    "isEntry": true,
+    "src": "resources/js/stripe.js"
   }
 }

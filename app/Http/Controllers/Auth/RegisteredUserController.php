@@ -45,7 +45,9 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
-
+        //registrar como cliente en stripe
+        $user->createAsStripeCustomer();
+        
         return redirect(RouteServiceProvider::HOME);
     }
 }
