@@ -1,0 +1,27 @@
+    /* animacion al abrir el modal */
+    dialog[open] {
+        animation: appear .15s cubic-bezier(0, 1.8, 1, 1.8);
+    }
+
+    /* fondo de modal  */
+    dialog::backdrop {
+        background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(54, 54, 54, 0.5));
+        backdrop-filter: blur(1px);
+    }
+
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+            transform: translateX(-3rem);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .div-parent:focus-within {
+        border-color: #374151; /* Cambia el color del borde cuando el input está enfocado */
+    }

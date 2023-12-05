@@ -22,7 +22,7 @@
 </head>
 
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 relative">
 
     @php
         $tema = 'red';

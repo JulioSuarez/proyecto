@@ -6,9 +6,14 @@
     "file": "assets/index-e3f35709.js"
   },
   "resources/css/app.css": {
-    "file": "assets/app-63e793d1.css",
+    "file": "assets/app-52923449.css",
     "isEntry": true,
     "src": "resources/css/app.css"
+  },
+  "resources/css/disenio_modal.css": {
+    "file": "assets/disenio_modal-ed910151.css",
+    "isEntry": true,
+    "src": "resources/css/disenio_modal.css"
   },
   "resources/js/app.js": {
     "file": "assets/app-afa9032e.js",
@@ -43,7 +48,7 @@
     "src": "resources/js/streamjs/en-vivo.js"
   },
   "resources/js/streamjs/ia_mover_cara.js": {
-    "file": "assets/ia_mover_cara-c8ee7074.js",
+    "file": "assets/ia_mover_cara-a4dc1e65.js",
     "isEntry": true,
     "src": "resources/js/streamjs/ia_mover_cara.js"
   },
