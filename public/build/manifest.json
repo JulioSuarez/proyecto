@@ -2,11 +2,8 @@
   "_axios-28bc18a3.js": {
     "file": "assets/axios-28bc18a3.js"
   },
-  "_index-e3f35709.js": {
-    "file": "assets/index-e3f35709.js"
-  },
   "resources/css/app.css": {
-    "file": "assets/app-52923449.css",
+    "file": "assets/app-8b4da45e.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -31,30 +28,19 @@
     "isEntry": true,
     "src": "resources/js/bootstrap.js"
   },
-  "resources/js/socket_client.js": {
-    "file": "assets/socket_client-826c493c.js",
-    "imports": [
-      "_index-e3f35709.js"
-    ],
+  "resources/js/business/ia_mover_cara.js": {
+    "file": "assets/ia_mover_cara-3fee594c.js",
     "isEntry": true,
-    "src": "resources/js/socket_client.js"
+    "src": "resources/js/business/ia_mover_cara.js"
   },
-  "resources/js/streamjs/en-vivo.js": {
-    "file": "assets/en-vivo-afda48c9.js",
-    "imports": [
-      "_index-e3f35709.js"
-    ],
+  "resources/js/business/socket_client.js": {
+    "file": "assets/socket_client-afd2127c.js",
     "isEntry": true,
-    "src": "resources/js/streamjs/en-vivo.js"
+    "src": "resources/js/business/socket_client.js"
   },
-  "resources/js/streamjs/ia_mover_cara.js": {
-    "file": "assets/ia_mover_cara-a4dc1e65.js",
-    "isEntry": true,
-    "src": "resources/js/streamjs/ia_mover_cara.js"
-  },
-  "resources/js/stripe.js": {
+  "resources/js/business/stripe.js": {
     "file": "assets/stripe-27930273.js",
     "isEntry": true,
-    "src": "resources/js/stripe.js"
+    "src": "resources/js/business/stripe.js"
   }
 }

@@ -26,7 +26,9 @@ console.log('hola desde ia_mover_cara.js');
 async function postCargarFoto() {
 
     try {
-
+        cc = videos.length;
+        // console.log('cc: ', cc);
+        
         const formulario = {
             script: {
                 type: 'text',
@@ -56,7 +58,7 @@ async function postCargarFoto() {
 
         // let new_img = document.createElement('img');
         // new_img.className = 'h-28 w-28 opacity-80 border-2 rounded-lg';
-
+       
 
         div_control.innerHTML += `
                         <div id="div${cc}" class="relative">
@@ -112,7 +114,9 @@ async function postCargarFoto() {
                         </div>
     `;
 
+   
 
+        
         let new_span = document.getElementById('img_contendio' + cc);
         let new_img = document.getElementById('img_imagen' + cc);
         let model_video = document.getElementById('model_video' + cc);
@@ -179,7 +183,7 @@ async function postCargarFoto() {
             });
         console.log('fin xd xd')
         crearEventos();
-        cc++;
+        // cc++;
 
     } catch (error) {
         console.error('Error al realizar el POST:', error);
@@ -217,25 +221,23 @@ document.getElementById('bt_mujer').addEventListener('click', function () {
 
 
 //eventos de los botones
-let i_endice = 0;
+// let i_endice = 0;
 
-function abriModal() {
-    console.log('click abrir' + i_endice);
-    document.getElementById('modal' + i_endice).showModal();
+function abriModal(i) {
+    console.log('click abrir' + i);
+    document.getElementById('modal' + i).showModal();
 }
 
-function cerrarModal() {
-    console.log('click en cerrar modal' + i_endice);
-    document.getElementById('modal' + i_endice).close();
+function cerrarModal(i) {
+    console.log('click en cerrar modal' + i);
+    document.getElementById('modal' + i).close();
 }
 
 
-function clickDerecha() {
+function clickDerecha(i) {
 
-    console.log('click en derech' + i_endice);
+    console.log('click en derech' + i);
 
-
-    let i = i_endice;
     if (i + 1 < videos.length) {
         // console.log('ahora i vale: ', i);
         //lista de reproduccion
@@ -266,10 +268,10 @@ function clickDerecha() {
 
 }
 
-function clickIzquierda () {
+function clickIzquierda (i) {
 
-    console.log('click en izquierda' + i_endice);
-    let i = i_endice;
+    console.log('click en izquierda' + i);
+
     if (i > 0) {
         //lista de reproduccion
         let aux = videos[i];
@@ -305,135 +307,114 @@ function eliminarDiv(i) {
     // let i = i_endice;
     console.log('click en elimina' + i);
     //lista de reproduccion
-    // videos.splice(i, 1);
+    videos.splice(i, 1);
 
-    // eliminarEventos();
+    //vamos a eliminar el ultimo div, pa eso necesitamos mover todos los datos 
+  //  0 1 2
+    for (let c = i; c < videos.length; c++) {
+        mificarIndica(c);
+    }
 
-    // let div = document.getElementById('div' + i);
-    // div.remove();
-
-    // //en el div
-    // // let aux = i;
-    // for (let c = i + 1; c <= videos.length; c++) {
-    //     mificarIndica(c);
-    // }
-
-    // crearEventos();
-
+    //remover el ultimo
+    let div = document.getElementById('div' + videos.length);
+    console.log('div: ', div, 'videos.length: ', videos.length);
+    div.remove();
+    console.log(div_control);
 }
 
-const eliminarDivXd = () => {
-
-}
 
 
 
 const crearEventos = () => {
 
     for (let i = 0; i < videos.length; i++) {
-        i_endice = i;
+
     console.warn('creando eventos para: ' + i);
     document.getElementById('bt_imagen' + i)
-        .addEventListener('click',  abriModal );
+        .addEventListener('click',()=> abriModal(i) );
 
     document.getElementById('bt_cerrar' + i)
-        .addEventListener('click', cerrarModal);
+        .addEventListener('click',()=> cerrarModal(i));
 
     document.getElementById('bt_derecha' + i)
-        .addEventListener('click', clickDerecha);
+        .addEventListener('click',()=> clickDerecha(i));
 
     document.getElementById('bt_izquierda' + i)
-        .addEventListener('click', clickIzquierda );
+        .addEventListener('click',()=> clickIzquierda(i) );
 
     document.getElementById('bt_eliminar' + i)
-        .addEventListener('click', () => eliminarDivXd );
+        .addEventListener('click', () => eliminarDiv(i) );
     }
 }
 
 
 const mificarIndica = (indice) => {
     console.log('mificarIndica: ', indice);
-    let div = document.getElementById('div' + indice);
-    div.id = 'div' + (indice - 1);
-
-    let modal = document.getElementById('modal' + indice);
-    modal.id = 'modal' + (indice - 1);
-
-    let bt_cerrar = document.getElementById('bt_cerrar' + indice);
-    bt_cerrar.id = 'bt_cerrar' + (indice - 1);
-
+    //video
     let modal_video = document.getElementById('model_video' + indice);
-    modal_video.id = 'model_video' + (indice - 1);
+    let aux = document.getElementById('model_video' + (indice + 1));
+    modal_video.src = aux.src;
 
-    let bt_imagen = document.getElementById('bt_imagen' + indice);
-    bt_imagen.id = 'bt_imagen' + (indice - 1);
-
+    //imagen
     let img_imagen = document.getElementById('img_imagen' + indice);
-    img_imagen.id = 'img_imagen' + (indice - 1);
+    aux = document.getElementById('img_imagen' + (indice + 1));
+    img_imagen.src = aux.src;
 
     let img_contendio = document.getElementById('img_contendio' + indice);
-    img_contendio.id = 'img_contendio' + (indice - 1);
-
-    let bt_eliminar = document.getElementById('bt_eliminar' + indice);
-    bt_eliminar.id = 'bt_eliminar' + (indice - 1);
-
-    let bt_izquierda = document.getElementById('bt_izquierda' + indice);
-    bt_izquierda.id = 'bt_izquierda' + (indice - 1);
-
-    let bt_derecha = document.getElementById('bt_derecha' + indice);
-    bt_derecha.id = 'bt_derecha' + (indice - 1);
+    aux = document.getElementById('img_contendio' + (indice + 1));
+    img_contendio.textContent = aux.textContent;
 
 
 }
 
 
-const eliminarEventos = () => {
+// const eliminarEventos = () => {
 
-    for (let i = 0; i < videos.length; i++) {
-        i_endice = i;
-    console.warn('creando eventos para: ' + i);
-    document.getElementById('bt_imagen' + i)
-        .removeEventListener('click',  abriModal );
+//     for (let i = 0; i < videos.length; i++) {
+//         i_endice = i;
+//     console.warn('creando eventos para: ' + i);
+//     document.getElementById('bt_imagen' + i)
+//         .removeEventListener('click',  abriModal );
 
-    document.getElementById('bt_cerrar' + i)
-        .removeEventListener('click', cerrarModal);
+//     document.getElementById('bt_cerrar' + i)
+//         .removeEventListener('click', cerrarModal);
 
-    document.getElementById('bt_derecha' + i)
-        .removeEventListener('click', clickDerecha);
+//     document.getElementById('bt_derecha' + i)
+//         .removeEventListener('click', clickDerecha);
 
-    document.getElementById('bt_izquierda' + i)
-        .removeEventListener('click', clickIzquierda );
+//     document.getElementById('bt_izquierda' + i)
+//         .removeEventListener('click', clickIzquierda );
 
-    document.getElementById('bt_eliminar' + i)
-        .removeEventListener('click', () =>  eliminarDiv(i) );
+//     document.getElementById('bt_eliminar' + i)
+//         .removeEventListener('click', () =>  eliminarDiv(i) );
 
-    }
-}
-
-
-
-var miBoton = document.getElementById('prueba');
-var miBoton2 = document.getElementById('prueba2');
+//     }
+// }
 
 
-function miFuncionEvento() {
-    console.log('click en prueba');
 
-    // Intentar eliminar el evento desde el mismo contexto
-    // miBoton.removeEventListener('click', miFF(1));
-    document.getElementById('bt_eliminar' + 2)
-    .removeEventListener('click', function(){
-        eliminarDiv(2);
-    });
+// var miBoton = document.getElementById('prueba');
+// var miBoton2 = document.getElementById('prueba2');
 
 
-}
+// function miFuncionEvento() {
+//     console.log('click en prueba');
+
+//     // Intentar eliminar el evento desde el mismo contexto
+//     // miBoton.removeEventListener('click', miFF(1));
+//     document.getElementById('bt_eliminar' + 2)
+//     .removeEventListener('click', function(){
+//         eliminarDiv(2);
+//     });
+
+
+// }
 
 // const miFF = (i) => () => miFuncionEvento(i);
 
 
 // Agregar el evento
-miBoton.addEventListener('click', miFuncionEvento);
+// miBoton.addEventListener('click', miFuncionEvento);
 
 
 // miBoton2.addEventListener('click', function () {

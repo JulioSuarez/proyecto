@@ -1,10 +1,10 @@
-        <x-navbar-inquilinos>
+        <x-app-layout>
 
-    @vite(['resources/js/streamjs/ia_mover_cara.js'])
+            @vite(['resources/js/business/ia_mover_cara.js'])
 
-    <x-slot name='titulo'>
+    {{-- <x-slot name='titulo'>
         IA Mover Cara xd
-    </x-slot>
+    </x-slot> --}}
     <div class=" p-8 h-full ">
 
         <div class="flex bg-white rounded-lg h-full p-7">
@@ -211,19 +211,18 @@
 
 
 
-
                     </div>
 
 
                 </div>
 
-                <button id="prueba" class="btn-red">
+                {{-- <button id="prueba" class="btn-red">
                     prueba
                 </button>
 
                 <button id="prueba2" class="btn-green">
                     prueba
-                </button>
+                </button> --}}
 
 
 
@@ -239,11 +238,7 @@
 
 
                 <div class="flex justify-center space-x-8 mt-4 bg-gray-100 py-3">
-                    <button>
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 12 16">
-                            <path d="M10.819.4a1.974 1.974 0 0 0-2.147.33l-6.5 5.773A2.014 2.014 0 0 0 2 6.7V1a1 1 0 0 0-2 0v14a1 1 0 1 0 2 0V9.3c.055.068.114.133.177.194l6.5 5.773a1.982 1.982 0 0 0 2.147.33A1.977 1.977 0 0 0 12 13.773V2.227A1.977 1.977 0 0 0 10.819.4Z"/>
-                          </svg>
-                    </button>
+                    
                     <button id="bt_play">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 16">
                             <path d="M0 .984v14.032a1 1 0 0 0 1.506.845l12.006-7.016a.974.974 0 0 0 0-1.69L1.506.139A1 1 0 0 0 0 .984Z"/>
@@ -255,11 +250,13 @@
                           </svg>
                     </button>
 
-                    <button>
-                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 12 16">
-                            <path d="M11 0a1 1 0 0 0-1 1v5.7a2.028 2.028 0 0 0-.177-.194L3.33.732A2 2 0 0 0 0 2.227v11.546A1.977 1.977 0 0 0 1.181 15.6a1.982 1.982 0 0 0 2.147-.33l6.5-5.773A1.88 1.88 0 0 0 10 9.3V15a1 1 0 1 0 2 0V1a1 1 0 0 0-1-1Z"/>
+                    <button id="bt_reset">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 1v5h-5M2 19v-5h5m10-4a8 8 0 0 1-14.947 3.97M1 10a8 8 0 0 1 14.947-3.97"/>
                           </svg>
                     </button>
+
+                  
                 </div>
 
 
@@ -363,4 +360,4 @@
 
 
     </div>
-</x-navbar-inquilinos>
+</x-app-layout>

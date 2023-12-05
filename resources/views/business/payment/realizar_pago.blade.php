@@ -1,7 +1,7 @@
 <x-guest-layout>
   
 
-    @vite('resources/js/stripe.js')
+    @vite('resources/js/business/stripe.js')
    
     
 
