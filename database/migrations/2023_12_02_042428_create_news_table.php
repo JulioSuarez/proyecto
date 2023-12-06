@@ -6,18 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    
     public function up(): void
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
             $table->string('message');
-            $table->string('title');
             $table->string('expression');
-            $table->string('route_path');
-            $table->string('name');
+            $table->text('route_path'); //url video d-id
+            $table->integer('sort');
+            $table->tinyInteger('gender'); //0 mujer 1 hombre
             $table->unsignedBigInteger('avatar_id');
             $table->foreign('avatar_id')->references('id')->on('avatars');
             $table->unsignedBigInteger('program_id');
@@ -26,9 +24,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('news');

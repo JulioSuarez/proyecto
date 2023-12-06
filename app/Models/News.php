@@ -11,22 +11,22 @@ class News extends Model
 
     protected $fillable = [
         'message',
-        'title',
         'expression',
         'route_path',
-        'name',
         'avatar_id',
+        'gender',
         'program_id',
+        'sort',
     ];
 
     public function program()
     {
-        return $this->belongsTo(Programs::class);
+        return $this->belongsTo(Programs::class, 'program_id');
     }
 
     public function avatar()
     {
-        return $this->belongsTo(Avatars::class);
+        return $this->belongsTo(Avatars::class, 'avatar_id');
     }
 
 }

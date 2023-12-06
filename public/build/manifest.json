@@ -2,8 +2,11 @@
   "_axios-28bc18a3.js": {
     "file": "assets/axios-28bc18a3.js"
   },
+  "_news_eventos-2235123c.js": {
+    "file": "assets/news_eventos-2235123c.js"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-8b4da45e.css",
+    "file": "assets/app-c35143c9.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -28,10 +31,26 @@
     "isEntry": true,
     "src": "resources/js/bootstrap.js"
   },
+  "resources/js/business/centro_control.js": {
+    "file": "assets/centro_control-fe4b328d.js",
+    "imports": [
+      "_news_eventos-2235123c.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/business/centro_control.js"
+  },
   "resources/js/business/ia_mover_cara.js": {
-    "file": "assets/ia_mover_cara-3fee594c.js",
+    "file": "assets/ia_mover_cara-ae4e1d12.js",
+    "imports": [
+      "_news_eventos-2235123c.js"
+    ],
     "isEntry": true,
     "src": "resources/js/business/ia_mover_cara.js"
+  },
+  "resources/js/business/news_eventos.js": {
+    "file": "assets/news_eventos-e4cdccae.js",
+    "isEntry": true,
+    "src": "resources/js/business/news_eventos.js"
   },
   "resources/js/business/socket_client.js": {
     "file": "assets/socket_client-afd2127c.js",

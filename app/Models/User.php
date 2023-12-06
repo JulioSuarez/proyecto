@@ -81,10 +81,4 @@ class User extends Authenticatable implements FilamentUser
             }
         }));
     }
-
-
-    //relaciones
-   
-
-
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Avatars;
 use App\Models\Suscripcion;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->role();
         $this->suscripciones();
         $this->users();
+        $this->avatars();
     }
     public function role()
     {
@@ -76,5 +78,29 @@ class DatabaseSeeder extends Seeder
         $user->stripe_id = 'cus_P4z0sgrox7qZg8';
         $user->assignRole('Gerente');
         $user->save();
+
+        $user = new User();
+        $user->name = "Emanuel Vaca";
+        $user->email = "emanuel@gmail.com";
+        $user->password = bcrypt('12345678');
+        $user->stripe_id = 'cus_P4z0sgrox7qZg8';
+        $user->assignRole('Gerente');
+        $user->save();
+    }
+
+
+    public function avatars()
+    {
+        $avatar = new Avatars();
+        $avatar->route_path = 'https://fotografia-soft1.s3.amazonaws.com/avatars/I6KZH0HqqQRRW9BUKWfOhKEfzcTFdCwGpW6GK1HQ.png';
+        $avatar->name = 'I6KZH0HqqQRRW9BUKWfOhKEfzcTFdCwGpW6GK1HQ.png';
+        $avatar->user_id = 1;
+        $avatar->save();
+
+        $avatar = new Avatars();
+        $avatar->route_path = 'https://fotografia-soft1.s3.amazonaws.com/avatars/I6KZH0HqqQRRW9BUKWfOhKEfzcTFdCwGpW6GK1HQ.png';
+        $avatar->name = 'T99KggMo4a2Hh5WsYCUDMTlhQJJsZH9ijhrgDRmk.jpg';
+        $avatar->user_id = 1;
+        $avatar->save();
     }
 }

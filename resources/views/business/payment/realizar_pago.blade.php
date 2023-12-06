@@ -38,7 +38,7 @@
         <div class="border-gray-400 border-l-2 px-5 flex-1 flex flex-col justify-between">
 
 
-         @livewire('pago_suscripcion' )
+         @livewire('business.pago-suscripcion' )
 
         </div>
     </div>

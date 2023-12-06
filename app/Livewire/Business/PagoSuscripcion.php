@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Business;
 
 use App\Models\Suscripcion;
 use Livewire\Component;
@@ -88,7 +88,7 @@ class PagoSuscripcion extends Component
 
     public function render()
     {
-        return view('livewire.pago-suscripcion', [
+        return view('livewire.business.pago-suscripcion', [
             'intent' => auth()->user()->createSetupIntent(),
             'metodos_pago' => auth()->user()->paymentMethods(),
         ]);

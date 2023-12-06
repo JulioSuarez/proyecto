@@ -21,6 +21,6 @@ class Avatars extends Model
 
     public function new()
     {
-        return $this->belongsTo(News::class);
+        return $this->belongsTo(News::class, 'avatar_id');
     }
 }

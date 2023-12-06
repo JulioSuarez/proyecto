@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\Business\AvatarController;
 use App\Http\Controllers\Business\MetodoPagoController;
 use App\Http\Controllers\Business\ProgramController;
@@ -37,12 +38,21 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-   Route::resource('programs', ProgramController::class)->only(['index', 'show']);
+    
+    
+    Route::resource('programs', ProgramController::class)->only(['index', 'show']);
+    Route::post('/new/store',[ProgramController::class, 'new_store']);
+    Route::post('/new/update',[ProgramController::class, 'new_update']);
+
    Route::resource('avatars', AvatarController::class)->only('index');
 
 
     //suscripciones
     Route::get('/suscripcion/RealizarPago/',[MetodoPagoController::class, 'pago_suscripcion'])->name('suscripcion.pago_suscripcion');
+   
+
+    //julico
+    Route::get('/dashboard/admin',[AdministradorController::class, 'dashboard'])->name('admin.dashboard');
    
 });
 

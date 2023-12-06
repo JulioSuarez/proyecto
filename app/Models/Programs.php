@@ -22,6 +22,6 @@ class Programs extends Model
 
     public function news()
     {
-        return $this->hasMany(News::class);
+        return $this->hasMany(News::class, 'program_id');
     }
 }
