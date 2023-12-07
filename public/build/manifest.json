@@ -40,7 +40,7 @@
     "src": "resources/js/business/centro_control.js"
   },
   "resources/js/business/ia_mover_cara.js": {
-    "file": "assets/ia_mover_cara-ea3eb4f4.js",
+    "file": "assets/ia_mover_cara-6c5741d9.js",
     "imports": [
       "_news_eventos-2235123c.js"
     ],

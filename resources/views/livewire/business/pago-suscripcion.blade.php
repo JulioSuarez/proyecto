@@ -164,7 +164,7 @@
     <script src="https://js.stripe.com/v3/"></script>
     
     <script>
-        const stripe = Stripe("{{ env('STRIPE_KEY') }}");
+        const stripe = Stripe("pk_test_51MzGDiJrLfX1VoDJMPD3WfaQ7yBDoXaNhgwiABhCS13dxpnWByn4WqNY2NSTq0QWAOrA3Sy1YX1weZPBHHG1D3c000G1rPwLFF");
         const elements = stripe.elements();
         const cardElement = elements.create('card');
 

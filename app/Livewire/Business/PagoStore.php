@@ -65,10 +65,8 @@ class PagoStore extends Component
         $user->charge($this->monto * 100, $user->defaultPaymentMethod()->id);
         //agregar a la tabla de ventas y detalles de ventas
 
-        return redirect()->route('program.index')->with('success', 'Compra exitosa de '.$this->monto.' creditos');
+        return redirect()->route('programs.index')->with('success', 'Compra exitosa de '.$this->monto.' creditos');
     }
-
-
 
 
     public function render()

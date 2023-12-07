@@ -38,7 +38,7 @@
                     <div> 
                         <span> Credits </span>
                         <span id="credits" class="badge bg-secondary ms-1">{{ Auth::user()->credits }} </span>
-                        <span> 5  </span>
+                        <span> {{ Auth::user()->credits }} </span>
                         {{-- quitar el 5 luego del seeders --}}
                     </div>
                    

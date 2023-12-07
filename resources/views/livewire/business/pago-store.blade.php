@@ -5,7 +5,7 @@
    
             <li>
                 <input type="radio" id="credit_20" name="credits" value="" class="hidden peer" required=""
-                    wire:click="setMonto({{20}})"
+                    wire:click="setMonto({{5}})"
                 >
                 <label for="credit_20"
                     class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
@@ -21,7 +21,7 @@
 
             <li>
                 <input type="radio" id="credit_50" name="credits" value="" class="hidden peer" required=""
-                wire:click="setMonto({{50}})">
+                wire:click="setMonto({{10}})">
                 <label for="credit_50"
                     class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                     <div class="flex space-x-8">
@@ -36,7 +36,7 @@
 
             <li>
                 <input type="radio" id="credit_80" name="credits" value="" class="hidden peer" required=""
-                wire:click="setMonto({{80}})">
+                wire:click="setMonto({{15}})">
                 <label for="credit_80"
                     class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                     <div class="flex space-x-8">
@@ -256,7 +256,8 @@
     <script src="https://js.stripe.com/v3/"></script>
 
     <script>
-        const stripe = Stripe("{{ env('STRIPE_KEY') }}");
+        const stripe = Stripe("pk_test_51MzGDiJrLfX1VoDJMPD3WfaQ7yBDoXaNhgwiABhCS13dxpnWByn4WqNY2NSTq0QWAOrA3Sy1YX1weZPBHHG1D3c000G1rPwLFF");
+        
         const elements = stripe.elements();
         const cardElement = elements.create('card');
 

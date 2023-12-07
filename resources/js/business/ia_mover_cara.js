@@ -7,7 +7,7 @@ let butom_ia = document.getElementById('butom_ia');
 // let genero = 0; //0 = hombre, 1 = mujer
 
 
-const apiKeyDId = 'ZHVtbGlwYWxtZUBndWZ1bS5jb20:p-tO3lqe-p-DBLmceM_8h';
+const apiKeyDId = 'dmlsbWVjYXN0b0BndWZ1bS5jb20:XkqeCy4ddaOBlfaTBOh38';
 let imagen_url = ''; //validar que no este vacio
 //https://imgfz.com/i/QgIHbXC.jpeg foto de julico
 
