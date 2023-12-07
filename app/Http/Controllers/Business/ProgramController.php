@@ -58,6 +58,7 @@ class ProgramController extends Controller
 
             return response()->json([
                 'message' => 'success',
+                'credits' => $user->credits,
             ]);
         
         } catch (\Throwable $th) {

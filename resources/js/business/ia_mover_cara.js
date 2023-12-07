@@ -216,7 +216,7 @@ const subirNewVideo = async (sort,result_url,mensaje,voz,animacion ) => {
 
                     //quitar un cretido!!
                     let credits = document.getElementById('credits');
-                    credits.textContent = response.credits;
+                    credits.textContent = response.data.credits;
                     console.log('Creditos actualizados');
                     //se puede mostar un alert
 
