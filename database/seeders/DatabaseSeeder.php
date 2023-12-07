@@ -27,14 +27,12 @@ class DatabaseSeeder extends Seeder
         $this->role();
         $this->suscripciones();
         $this->users();
-        $this->avatars();
+        // $this->avatars();
     }
     public function role()
     {
         $gerente = Role::create(['name' => 'Gerente']);
         Permission::create(['name' => 'admin'])->syncRoles([$gerente]);
-
-
     }
 
     public function suscripciones(){
@@ -61,6 +59,7 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt('password');
         $user->stripe_id = 'cus_P7jVKCPwDursvN';
         $user->assignRole('Gerente');
+        $user->credits = 10;
         $user->save();
 
         $user = new User();
@@ -69,6 +68,7 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt('12345678');
         $user->stripe_id = 'cus_P4yGqDLT3CSoyJ';
         $user->assignRole('Gerente');
+        $user->credits = 10;
         $user->save();
 
         $user = new User();
@@ -77,6 +77,7 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt('12345678');
         $user->stripe_id = 'cus_P4z0sgrox7qZg8';
         $user->assignRole('Gerente');
+        $user->credits = 10;
         $user->save();
 
         $user = new User();
@@ -85,6 +86,7 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt('12345678');
         $user->stripe_id = 'cus_P4z0sgrox7qZg8';
         $user->assignRole('Gerente');
+        $user->credits = 10;
         $user->save();
     }
 

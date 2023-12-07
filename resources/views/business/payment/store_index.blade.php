@@ -1,4 +1,5 @@
 <x-app-layout>
+    @vite('resources/js/business/stripe.js')
     
     <x-container>
 

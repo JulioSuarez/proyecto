@@ -4,7 +4,7 @@ console.log('news_eventos.js');
 let div_control = document.getElementById('div_control_videos');
 
 
-export function addNewView(cc, route_path = '', route_path_image = '') {
+export function addNewView(cc, route_path = '', route_path_image = 'http://imgfz.com/i/RXqL27N.jpeg') {
     div_control.innerHTML += `
         <div id="div${cc}" class="relative p-0.5">
             <dialog id="modal${cc}" class="bg-slate-100 rounded-2xl relative w-[50%] h-fit">

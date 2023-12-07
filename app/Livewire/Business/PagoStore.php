@@ -49,8 +49,10 @@ class PagoStore extends Component
 
     public function realizarPago()
     {
+     
         if(! auth()->user()->hasDefaultPaymentMethod())
         {
+            // dd('no tiene metodo de pago'	);
             $this->dispatch('error', 'No tiene ningun metodo de pago registrado');
             return ;
         }
@@ -69,7 +71,7 @@ class PagoStore extends Component
         if($this->monto == 15){
             $credito = 80;
         }
-
+// dd($credito);    
 
         $user = auth()->user();
         $user->credits = $user->credits + $credito;

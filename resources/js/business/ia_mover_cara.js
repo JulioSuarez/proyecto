@@ -89,6 +89,23 @@ async function postCargarFoto() {
                 console.log(response);
                 new_span.textContent = 'Procesando video...';
 
+                console.log('response.kind: ', response.kind);
+                console.log('response.status: ', response.status);
+                
+                if(response.kind == 'CelebrityDetectedError'){
+                    Swal.fire({
+                        icon: "error",
+                        title: "Celebrity Detected ",
+                        text: 'Recognized a celebrity in the provided image - if you have the image rights you can contact suppor',
+                        // footer: '<a href="#">Why do I have this issue?</a>'
+                    });
+
+                    //eliminar video
+
+
+
+                }else{
+
                 let id_video = response.id;
                 console.log('id_video:', id_video);
 
@@ -116,7 +133,7 @@ async function postCargarFoto() {
                             if (respuesta.status == 'done') {
                                 videos.push(respuesta.result_url);
 
-                                new_span.textContent = 'Listo para reproducir' + cc;
+                                new_span.textContent = 'Listo para reproducir';
                                 new_img.src = respuesta.source_url;
                                 model_video.src = respuesta.result_url;
 
@@ -130,12 +147,14 @@ async function postCargarFoto() {
                                     console.error('ERROR mostrar mensaje de error')
                                 }else{
                                     console.warn('EL VIDEO SIGUE EN PROCESO')
+                                    console.log(response);
                                 }
                             }
 
                         })
 
                 }
+            }
 
                 console.log('termine de cargar')
 
@@ -158,13 +177,38 @@ butom_ia.addEventListener('click', async function () {
     let ip_mensaje = document.getElementById('ip_mensaje');
     let ip_error = document.getElementById('ip_error');
     //validar de que sean minimo 3 letras 
-    if (ip_mensaje.value.length < 3 || imagen_url == '') {
+    let credits = document.getElementById('credits');
+    if (credits.textContent <= 0 || ip_mensaje.value.length < 3 || imagen_url == ''   ) {
+        if( credits.textContent <= 0){
+            ip_error.textContent = "*you have no credits" ;
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: 'ya no tienes creditos para crear un video',
+                footer: '<a href="http://127.0.0.1:8000/store"> Ir a comprar </a>'
+            });
+
+
+        }
         if( imagen_url == ''){
             ip_error.textContent = "*selecciona un avatar" ;
-        }else{
-            ip_error.textContent = "*minimum 3 characters" ;
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: 'Seelcciona un avatar',
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
         }
-
+        
+        if( ip_mensaje.value.length < 3){
+            ip_error.textContent = "*minimum 3 characters" ;
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: 'Debes escribir un texto de minimo 3 caracteres',
+                // footer: '<a href="#">Why do I have this issue?</a>'
+            });
+        }
    
     }else{
         ip_error.textContent = '';
@@ -210,20 +254,22 @@ const subirNewVideo = async (sort,result_url,mensaje,voz,animacion ) => {
             .then((response) => {
                 console.warn('response:', response);
 
-                if(response.status == 'success'){
+                console.log('hola esyt en subir video ');
+
+                if(response.message == 'success'){
                     //se agrego la base de datos 
                     //devolver para que se actualice la lista de videos
 
                     //quitar un cretido!!
                     let credits = document.getElementById('credits');
-                    credits.textContent = response.data.credits;
+                    // console.log(credits);
+                    credits.textContent = response.credits;
                     console.log('Creditos actualizados');
                     //se puede mostar un alert
 
-
-
-
                 }else{
+
+                    console.log('ésty en else xd ');
                     //hubo un error en la base de datos
 
                     //mostrar mensaje de error y 
@@ -235,7 +281,7 @@ const subirNewVideo = async (sort,result_url,mensaje,voz,animacion ) => {
 
             })
             .catch(err => {
-                console.log('entre al error:', err)
+                console.log('entre al error al subri video :', err)
 
             });
         console.log('fin xd xd')

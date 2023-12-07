@@ -82,4 +82,10 @@ class User extends Authenticatable implements FilamentUser
             }
         }));
     }
+
+    public function newsCreated(){
+        $programs = Programs::where('user_id', auth()->user()->id)->pluck('id');
+        $news = News::whereIn('program_id', $programs)->count();
+        return $news;
+    }
 }

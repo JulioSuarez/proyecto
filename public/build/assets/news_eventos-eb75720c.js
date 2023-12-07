@@ -1,4 +1,4 @@
-console.log("news_eventos.js");let s=document.getElementById("div_control_videos");function _(e,t="",o=""){s.innerHTML+=`
+console.log("news_eventos.js");let s=document.getElementById("div_control_videos");function _(e,t="",o="http://imgfz.com/i/RXqL27N.jpeg"){s.innerHTML+=`
         <div id="div${e}" class="relative p-0.5">
             <dialog id="modal${e}" class="bg-slate-100 rounded-2xl relative w-[50%] h-fit">
                 <button id="bt_cerrar${e}" type="button" class="absolute right-2 top-3 px-3 py-1 rounded-lg hover:border border-gray-600">

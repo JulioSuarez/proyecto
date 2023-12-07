@@ -2,11 +2,11 @@
   "_axios-28bc18a3.js": {
     "file": "assets/axios-28bc18a3.js"
   },
-  "_news_eventos-2235123c.js": {
-    "file": "assets/news_eventos-2235123c.js"
+  "_news_eventos-eb75720c.js": {
+    "file": "assets/news_eventos-eb75720c.js"
   },
   "resources/css/app.css": {
-    "file": "assets/app-9827b5a5.css",
+    "file": "assets/app-14863b9b.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -32,17 +32,17 @@
     "src": "resources/js/bootstrap.js"
   },
   "resources/js/business/centro_control.js": {
-    "file": "assets/centro_control-fe4b328d.js",
+    "file": "assets/centro_control-ab5c3ef7.js",
     "imports": [
-      "_news_eventos-2235123c.js"
+      "_news_eventos-eb75720c.js"
     ],
     "isEntry": true,
     "src": "resources/js/business/centro_control.js"
   },
   "resources/js/business/ia_mover_cara.js": {
-    "file": "assets/ia_mover_cara-c35ee9be.js",
+    "file": "assets/ia_mover_cara-773ccf58.js",
     "imports": [
-      "_news_eventos-2235123c.js"
+      "_news_eventos-eb75720c.js"
     ],
     "isEntry": true,
     "src": "resources/js/business/ia_mover_cara.js"

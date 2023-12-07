@@ -1,9 +1,5 @@
 <x-guest-layout>
-  
-
- 
-   
-    
+    @vite('resources/js/business/stripe.js')
 
  <div class="pt-6 w-full flex justify-center">
     <div class="w-full flex  sm:max-w-4xl mt-6 px-3 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">

@@ -453,6 +453,7 @@
             let images_news = @json($avatarRoutes);
             const $len_avatars = @json($avatars->count());
 
+
             let videos = [
                 // "https://fotografia-soft1.s3.amazonaws.com/videos/video1.mp4",
                 // "https://fotografia-soft1.s3.amazonaws.com/videos/video2.mp4",

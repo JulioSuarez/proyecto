@@ -13,8 +13,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js','resources/js/business/stripe.js'])
-   
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
    
     {{--  para las alertas --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
