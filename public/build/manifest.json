@@ -58,7 +58,7 @@
     "src": "resources/js/business/socket_client.js"
   },
   "resources/js/business/stripe.js": {
-    "file": "assets/stripe-27930273.js",
+    "file": "assets/stripe-9924869a.js",
     "isEntry": true,
     "src": "resources/js/business/stripe.js"
   }

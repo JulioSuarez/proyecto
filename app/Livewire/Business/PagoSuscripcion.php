@@ -74,7 +74,11 @@ class PagoSuscripcion extends Component
                 $email = auth()->user()->email;
                 $precio = 1;
                 Mail::to($email)->send(new PaymentMail($precio));
-        
+                
+                $user = auth()->user();
+                $user->credits = 10;
+                $user->save();
+
             }
 
 

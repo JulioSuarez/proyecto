@@ -44,6 +44,7 @@ class PagoStore extends Component
 
     public function setMonto($monto){
         $this->monto = $monto;
+        
     }
 
     public function realizarPago()
@@ -58,13 +59,23 @@ class PagoStore extends Component
             $this->dispatch('error', 'Seleccione un item');
             return ;
         }
+        $credito = 0;
+        if($this->monto == 5){
+            $credito = 20;
+        }
+        if($this->monto == 10){
+            $credito = 50;
+        }
+        if($this->monto == 15){
+            $credito = 80;
+        }
+
 
         $user = auth()->user();
-        // $precio = Carrito::where('id_user', $user->id)->sum('precio');
-        // dd($carritos);
+        $user->credits = $user->credits + $credito;
         $user->charge($this->monto * 100, $user->defaultPaymentMethod()->id);
         //agregar a la tabla de ventas y detalles de ventas
-
+        $user->save();
         return redirect()->route('programs.index')->with('success', 'Compra exitosa de '.$this->monto.' creditos');
     }
 
