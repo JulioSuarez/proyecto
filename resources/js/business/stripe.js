@@ -1,7 +1,3 @@
-
-  console.log('hola desde stripe carptera ');
-
-
   Livewire.on('error', function(message) {
             console.log('se ejecuto el script livewire xxd ');
             Swal.fire({
