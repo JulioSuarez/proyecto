@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->role();
         $this->suscripciones();
-        $this->users();
+        // $this->users();
         // $this->avatars();
     }
     public function role()
