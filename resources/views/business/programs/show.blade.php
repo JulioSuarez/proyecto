@@ -128,7 +128,7 @@
                                     <div class="flex space-x-2">
                                         <img src="{{ asset('/images/emojis/serio.png') }}" alt=""
                                             class="w-7 h-7   ">
-                                        <div class="w-full text-lg font-semibold">{{ __('Serious') }}</div>
+                                        <div class="w-full text-lg font-semibold">{{ __('Aburrido') }}</div>
                                     </div>
                                 </label>
                             </li>
