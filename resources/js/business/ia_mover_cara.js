@@ -7,7 +7,7 @@ let butom_ia = document.getElementById('butom_ia');
 // let genero = 0; //0 = hombre, 1 = mujer
 
 
-const apiKeyDId = 'dmlsbWVjYXN0b0BndWZ1bS5jb20:XkqeCy4ddaOBlfaTBOh38';
+const apiKeyDId = 'Z3Vwc296aXJ6aUBndWZ1bS5jb20:w4_0MAT0MFC7jHh7AQCVb';
 let imagen_url = ''; //validar que no este vacio
 //https://imgfz.com/i/QgIHbXC.jpeg foto de julico
 
@@ -101,7 +101,10 @@ async function postCargarFoto() {
                     });
 
                     //eliminar video
-
+                    let div = document.getElementById('div' + videos.length);
+                    // console.log('div: ', div, 'videos.length: ', cc);
+                    div.remove();
+                    // console.log(div_control);
 
 
                 }else{
