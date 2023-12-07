@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('token')->nullable();
             $table->rememberToken();
+            $table->integer('credits')->default(0);
             $table->timestamps();
         });
     }

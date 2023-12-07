@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Avatars;
 use App\Models\News;
 use App\Models\Programs;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProgramController extends Controller
@@ -49,6 +50,11 @@ class ProgramController extends Controller
 
             // registrar nueva noticia
             News::create($r->except('_token'));
+
+            //restar un credtito
+            $user = User::find(auth()->user()->id);
+            $user->credits = $user->credits - 1;
+            $user->save();
 
             return response()->json([
                 'message' => 'success',

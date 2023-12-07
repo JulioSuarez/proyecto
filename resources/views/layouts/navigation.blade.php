@@ -32,7 +32,28 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+
+                <button class="flex space-x-2 items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">   
+                    
+                    <div> 
+                        <span> Credits </span>
+                        <span id="credits" class="badge bg-secondary ms-1">{{ Auth::user()->credits }} </span>
+                        <span> 5  </span>
+                        {{-- quitar el 5 luego del seeders --}}
+                    </div>
+                   
+                        {{-- <svg class="w-5 h-5 text-yellow-500  " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                          </svg> --}}
+                          <img class="w-5 h-5" src="{{ asset('images/star.png') }}" alt="">
+                   
+
+                    
+                </button>
+                
+
                 <x-dropdown align="right" width="48">
+                    
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>

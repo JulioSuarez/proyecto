@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\WelcomeMail;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -52,6 +54,10 @@ class RegisteredUserController extends Controller
         Auth::login($user);
         //registrar como cliente en stripe
         $user->createAsStripeCustomer();
+
+        // Enviando notificación email
+        $email = $user->email;
+        Mail::to($email)->send(new WelcomeMail());
 
         // dd('llegue ');
         return redirect()->route('suscripcion.pago_suscripcion');

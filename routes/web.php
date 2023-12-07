@@ -49,7 +49,10 @@ Route::middleware('auth')->group(function () {
 
     //suscripciones
     Route::get('/suscripcion/RealizarPago/',[MetodoPagoController::class, 'pago_suscripcion'])->name('suscripcion.pago_suscripcion');
-   
+    Route::get('/store',[MetodoPagoController::class, 'store_index'])->name('store.index');
+    // Route::get('/store/realizar-pago',[MetodoPagoController::class, 'store_pago'])->name('store.pago');
+    
+
 
     //julico
     Route::get('/dashboard/admin',[AdministradorController::class, 'dashboard'])->name('admin.dashboard');

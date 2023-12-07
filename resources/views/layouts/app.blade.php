@@ -37,8 +37,23 @@
         <!-- Page Content -->
         <main>
             {{ $slot }}
+            @if (session('success'))
+            <script>
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: @json(session('success')),
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            </script>
+        @endif
+
         </main>
     </div>
+
+
+   
 </body>
 @stack('js')
 

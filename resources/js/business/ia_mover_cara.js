@@ -212,6 +212,17 @@ const subirNewVideo = async (sort,result_url,mensaje,voz,animacion ) => {
 
                 if(response.status == 'success'){
                     //se agrego la base de datos 
+                    //devolver para que se actualice la lista de videos
+
+                    //quitar un cretido!!
+                    let credits = document.getElementById('credits');
+                    credits.textContent = response.credits;
+                    console.log('Creditos actualizados');
+                    //se puede mostar un alert
+
+
+
+
                 }else{
                     //hubo un error en la base de datos
 

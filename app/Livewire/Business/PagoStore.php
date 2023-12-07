@@ -1,16 +1,12 @@
 <?php
 
 namespace App\Livewire\Business;
-
-use App\Models\Suscripcion;
 use Livewire\Component;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\PaymentMail;
 
-class PagoSuscripcion extends Component
+
+
+class PagoStore extends Component
 {
-    public Suscripcion $suscripcion;
-    public $tipo ;
     public $nombre = '';
     public $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Nobiembre', 'Diciembre'];
     public $tipo_tarjeta = [
@@ -22,12 +18,7 @@ class PagoSuscripcion extends Component
         'Diners Club' => 'Diners Club',
         'UnionPay' => 'UnionPay',
     ];
-
-    //constriuctor
-    public function mount()
-    {
-        $this->suscripcion = Suscripcion::where('id', 1)->first();
-    }
+    public $monto = 0;
 
     public function addMetodoPago($id_metodo_pago)
     {
@@ -45,54 +36,44 @@ class PagoSuscripcion extends Component
         auth()->user()->deletePaymentMethod($id_metodo_pago);
     }
 
+
     public function elegirMetodoPago($id_metodo_pago)
     {
         auth()->user()->updateDefaultPaymentMethod($id_metodo_pago);
     }
 
-    
-    public function nuevaSuscripcion()
-    {
-        
-        //pregunatar si tieen algun metodo registrado
-        if (!auth()->user()->hasDefaultPaymentMethod()) {
-            //emitir evento en session
-            // session()->flash('errorxd', 'No tiene ningun metodo de pago registrado');
-            $this->dispatch('error', 'No tiene ningun metodo de pago registrado');
-            return;
-        }
-
-        // dd('no pasar ');
-
-        try {
-            //preguntar si tenemos una suscripcoin activa 
-            if (!auth()->user()->subscribed('suscripcion')) {
-                auth()->user()->newSubscription('suscripcion', $this->suscripcion->stripe_id)
-                ->create(auth()->user()->defaultPaymentMethod()->id);
-                
-                //send email
-                $email = auth()->user()->email;
-                $precio = 1;
-                Mail::to($email)->send(new PaymentMail($precio));
-        
-            }
-
-
-               
-         
-        } catch (\Exception $e) {
-
-            $this->dispatch('error', __($e->getMessage()));
-            return;
-        }
-        return redirect()->route('dashboard')->with('success', 'You have successfully registered');
-              
+    public function setMonto($monto){
+        $this->monto = $monto;
     }
+
+    public function realizarPago()
+    {
+        if(! auth()->user()->hasDefaultPaymentMethod())
+        {
+            $this->dispatch('error', 'No tiene ningun metodo de pago registrado');
+            return ;
+        }
+
+        if( $this->monto == 0){
+            $this->dispatch('error', 'Seleccione un item');
+            return ;
+        }
+
+        $user = auth()->user();
+        // $precio = Carrito::where('id_user', $user->id)->sum('precio');
+        // dd($carritos);
+        $user->charge($this->monto * 100, $user->defaultPaymentMethod()->id);
+        //agregar a la tabla de ventas y detalles de ventas
+
+        return redirect()->route('program.index')->with('success', 'Compra exitosa de '.$this->monto.' creditos');
+    }
+
+
 
 
     public function render()
     {
-        return view('livewire.business.pago-suscripcion', [
+        return view('livewire.business.pago-store',[
             'intent' => auth()->user()->createSetupIntent(),
             'metodos_pago' => auth()->user()->paymentMethods(),
         ]);

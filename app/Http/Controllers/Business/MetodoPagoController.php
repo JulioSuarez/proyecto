@@ -18,5 +18,13 @@ class MetodoPagoController extends Controller
         return view('business.payment.realizar_pago',  compact('suscripcion') );
     }
 
-    // metodo de pago de carrito 
+    
+    
+    public function store_index(){
+        //buscar que suscripcion es
+        // dd('llegue x2');
+        // $suscripcion = Suscripcion::where('id', 1)->first();
+
+        return view('business.payment.store_index',  );
+    }
 }
